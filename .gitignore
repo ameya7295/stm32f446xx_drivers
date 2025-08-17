@@ -1,0 +1,10 @@
+.metadata
+.settings
+Debug/
+.project
+*.cproject
+.classpath
+
+*.launch
+*.list
+Release/
