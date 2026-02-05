@@ -3,26 +3,6 @@
 
 #include "stm32f446xx.h"
 
-/* This is handle structure for  the GPIO pin
- *
- */
-
-typedef struct{
-	uint8_t GPIO_PinNumber;
-	uint8_t GPIO_PinMode;
-	uint8_t GPIO_PinSPeed;
-	uint8_t GPIO_PinPuPdControl;
-	uint8_t GPIO_PinOPType;
-	uint8_t GPIO_PinAltFunMode;
-}GPIO_PinConfig_t;
-
-typedef struct
-{
-	//pointer to hold the base addr of the GPIO peripheral
-	GPIO_RegDef_t *pGPIOx ;/*!< THis hold the base address of the GPIO port to which the pin belongs. >*/
-	GPIO_PinConfig_t GPIO_PinConfig; //Hold the GPIO pin config settings.
-
-}GPIO_Handle_t;
 
 #define GPIO_PIN_0		0
 #define GPIO_PIN_1		1
@@ -39,6 +19,7 @@ typedef struct
 #define GPIO_PIN_12		12
 #define GPIO_PIN_13		13
 #define GPIO_PIN_14		14
+#define GPIO_PIN_15		15
 /*
  * GPIO possible mode
  */
@@ -61,6 +42,28 @@ typedef struct
 #define GPIO_PIN_NO_PUPD		0
 #define GPIO_PIN_PU				1
 #define GPIO_PIN_PD				2
+
+
+/* This is handle structure for  the GPIO pin
+ *
+ */
+
+typedef struct{
+	uint8_t GPIO_PinNumber;
+	uint8_t GPIO_PinMode;
+	uint8_t GPIO_PinSPeed;
+	uint8_t GPIO_PinPuPdControl;
+	uint8_t GPIO_PinOPType;
+	uint8_t GPIO_PinAltFunMode;
+}GPIO_PinConfig_t;
+
+typedef struct
+{
+	//pointer to hold the base addr of the GPIO peripheral
+	GPIO_RegDef_t *pGPIOx ;/*!< THis hold the base address of the GPIO port to which the pin belongs. >*/
+	GPIO_PinConfig_t GPIO_PinConfig; //Hold the GPIO pin config settings.
+
+}GPIO_Handle_t;
 
 
 /*

@@ -26,7 +26,11 @@ int main(void)
 	GPIO_Handle_t GPIO_push_button;
 
 	memset(&GpioLed, 0, sizeof(GpioLed));
+	GPIO_Init(&GpioLed);
+
 	memset(&GPIO_push_button, 0, sizeof(GPIO_push_button));
+	GPIO_Init(&GPIO_push_button);
+
 
 	GpioLed.pGPIOx = GPIOA;
 	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_12;
@@ -35,9 +39,8 @@ int main(void)
 	GpioLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OUT_TYPE_PP;
 	GpioLed.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
 
-
 	GPIO_PeriClockControl(GPIOA, ENABLE);
-	GPIOl_Init(&GpioLed);
+	GPIO_Init(&GpioLed);
 
 	//Push button Config
 	GPIO_push_button.pGPIOx = GPIOB;
